@@ -1,0 +1,132 @@
+*{
+    box-sizing: border-box;
+
+}
+
+body{
+    margin: 0;
+    padding:0;
+}
+
+.container{
+    max-width: 1300px;
+    padding: 0 30px;
+}
+
+.modal--show{
+    visibility: visible!important;
+    opacity: 1!important;
+}
+.modal{
+    visibility: hidden;
+    opacity: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(0, 0, 0, 0.397);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+    transition: opacity .3s ease, visibility .3s ease;
+}   
+
+.modal__container{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    min-width: 300px;
+    min-height: 300px;
+    aspect-ratio: 4/2;
+    max-height: 80vh;
+
+    background-color: white;
+    border-radius: 6px;
+    padding: 20px;
+    /* transition: transform .3s ease; */
+    /* animation: enter .3s ease forwards; */
+}
+
+.modal--show > .modal__container{
+    animation: enter .3s ease forwards;
+}
+
+.modal--close > .modal__container{
+    animation: leave .3s ease forwards;    
+}
+
+@keyframes leave {
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+
+        transform:scale(0.5) translateY(-50vh);
+    }
+    100%{
+        transform: translateY(-100vh);
+    }
+}
+@keyframes enter {
+    0%{
+        transform: translateY(-100vh);
+    }
+    50%{
+
+        transform:scale(0.5) translateY(-50vh);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
+
+
+
+
+.form{
+    display: flex;
+    justify-content: center;
+}
+.form__input{
+    margin-left: 10px;
+}
+
+.form__input--invalid{
+    background-color: red;
+    color: white;
+}
+
+.form__input--valid{
+    background-color: green;
+    color: white;
+}
+
+.form__submit{
+    margin-left: 10px;
+}
+.info{
+    display: flex;
+    margin-top:20px ;
+    justify-content: space-between;
+    width: 100%;
+    column-gap: 20px;
+}
+
+
+.info__card{
+    width: 25%;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
